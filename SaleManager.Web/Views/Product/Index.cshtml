@@ -1,0 +1,60 @@
+﻿@model IEnumerable<SaleManager.Web.Models.ProductModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var controllerName = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString();
+    var actionName = HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString();
+}
+<link rel="stylesheet" href="@Url.Content("~/Content/" + controllerName + ".css")">
+<script src="@Url.Content("~/Scripts/" + controllerName + "/" + actionName + ".js")"></script>
+
+@if (!string.IsNullOrEmpty(ViewBag.Mess))
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>@ViewBag.Mess</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+<a href="@Url.Action("Add")" role="button" class="btn btn-outline-info">
+    <i class="fas fa-plus-circle"></i>
+</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Barcode</th>
+            <th scope="col">Name</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Unit</th>
+            <th scope="col">Price</th>
+            <th scope="col">Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+
+            <th scope="row">
+                <a class="btn btn-outline-info btn-delete" data-value="@item.Barcode" data-toggle="modal" data-target="#deleteModal">
+                    <i class="far fa-trash-alt"></i>
+                </a>
+            </th>
+            <td><a href="@Url.Action("Edit",new { Id=item.Barcode })">@item.Name</a></td>
+            <td>@item.Quantity</td>
+            <td>@item.Unit</td>
+            <td>@item.Price</td>
+            <td><img src="@Url.Content("~/UploadFiles/Products/Thumbnails/" + item.Img)" alt="@item.Name" class="img-thumbnail"></td>
+        </tr>
+        }
+    </tbody>    
+</table>
+
+<form method="post" action="@Url.Action("Delete")" id="form-delete" class="d-none">
+    @Html.AntiForgeryToken()
+    <input value="" name="id" id="Id">
+</form>
+

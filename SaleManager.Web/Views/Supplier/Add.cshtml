@@ -1,0 +1,35 @@
+﻿
+@model SaleManager.Web.Models.SupplierModel
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var controllerName = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString();
+    var actionName = HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString();
+}
+<link rel="stylesheet" href="@Url.Content("~/Content/" + controllerName + ".css")">
+<script src="@Url.Content("~/Scripts/" + controllerName + "/" + actionName + ".js")"></script>
+
+<form method="post" action="@Url.Action("Add")">
+    @Html.AntiForgeryToken()
+    div class="form-group">
+    <label for="Name">Name</label>
+    <input name="Name" value="@Model.Name" id="Name" type="text" class="form-control" required maxlength="50">
+    <small class="form-text text-danger invalid-feedback">@Html.ValidationMessage("Name")</small>
+    </div>
+    <div class="form-group">
+        <label for="contact1">Contact1</label>
+        <input name="Contact1" value="@Model.Contact1" type="text" class="form-control" id="contact1" required maxlength="12">
+        <small class="form-text text-danger">@Html.ValidationMessage("Contact1")</small>
+    </div>
+    <div class="form-group">
+        <label for="contact2">Contact2</label>
+        <input name="Contact2" value="@Model.Contact2" type="text" class="form-control" id="contact2" maxlength="12">
+        <small class="form-text text-danger">@Html.ValidationMessage("Contact2")</small>
+    </div>
+    <div class="form-group">
+        <label for="address">Address</label>
+        <input name="Address" value="@Model.Address" type="text" class="form-control" id="address" maxlength="200">
+        <small class="form-text text-danger">@Html.ValidationMessage("Address")</small>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

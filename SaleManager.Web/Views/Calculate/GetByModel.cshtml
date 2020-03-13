@@ -1,0 +1,15 @@
+﻿@model IEnumerable<SaleManager.Web.Models.ActionParamModel>
+@{
+    ViewBag.Title = "GetByModel";
+}
+
+<h2>GetByModel</h2>
+<h3>@ViewBag.Mess</h3>
+<ul class="list-group">
+    @foreach (var item in Model)
+    {
+        <li class="list-group-item">id: @item.id</li>
+        <li class="list-group-item">name: @item.name</li>
+    }
+</ul>
+

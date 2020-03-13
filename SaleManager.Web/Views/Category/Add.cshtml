@@ -13,13 +13,13 @@
     @Html.AntiForgeryToken()
     <div class="form-group">
         <label for="name">Name</label>
-        <input name="Name" value="@Model.Name" type="text" class="form-control" id="name" aria-describedby="nameHelp">
-        <small id="nameHelp" class="form-text text-danger">@Html.ValidationMessage("Name")</small>
+        <input name="Name" value="@Model.Name" type="text" class="form-control" id="name">
+        <small class="form-text text-danger">@Html.ValidationMessage("Name")</small>
     </div>
     <div class="form-group">
         <label for="descrption">Description</label>
-        <input name="Description" value="@Model.Description" type="text" class="form-control" id="descrption" aria-describedby="descrptionHelp">
-        <small id="descrptionHelp" class="form-text text-danger">@Html.ValidationMessage("Description")</small>
+        <input name="Description" value="@Model.Description" type="text" class="form-control" id="descrption">
+        <small class="form-text text-danger">@Html.ValidationMessage("Description")</small>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>

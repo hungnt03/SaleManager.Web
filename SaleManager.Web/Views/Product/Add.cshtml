@@ -14,17 +14,57 @@
     <div class="form-group">
         <label for="Barcode">Barcode</label>
         <input name="Barcode" value="@Model.Barcode" type="text" class="form-control" required>
-        <div class="invalid-feedback">@Html.ValidationMessage("Barcode")</div>
+        <small class="form-text text-danger">@Html.ValidationMessage("Barcode")</small>
     </div>
     <div class="form-group">
         <label for="Name">Name</label>
-        <input name="Name" value="@Model.Name" type="text" class="form-control" id="Name" aria-describedby="NameHelp">
-        <small id="NameHelp" class="form-text text-danger">@Html.ValidationMessage("Name")</small>
+        <input name="Name" value="@Model.Name" type="text" class="form-control" id="Name">
+        <small class="form-text text-danger">@Html.ValidationMessage("Name")</small>
     </div>
     <div class="form-group">
         <label for="Price">Price</label>
-        <input name="Price" value="@Model.Price" type="text" class="form-control" id="Price" aria-describedby="PriceHelp">
-        <small id="PriceHelp" class="form-text text-danger">@Html.ValidationMessage("Price")</small>
+        <input name="Price" value="@Model.Price" type="text" class="form-control" id="Price">
+        <small class="form-text text-danger">@Html.ValidationMessage("Price")</small>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-6 col-sm-12">
+            <label for="Quantity">Quantity</label>
+            <input name="Price" value="@Model.Quantity" type="text" class="form-control" id="Quantity">
+            <small class="form-text text-danger">@Html.ValidationMessage("Quantity")</small>
+        </div>
+        <div class="form-group col-md-6 col-sm-12">
+            <label for="Quantity">Unit</label>
+            <input name="Unit" value="@Model.Unit" type="text" class="form-control" id="Unit">
+            <small class="form-text text-danger">@Html.ValidationMessage("Unit")</small>
+        </div>
+    </div>
+    <div class="d-flex flex-row justify-content-lg-start p-2">
+        <div class="custom-control custom-switch">
+            <input name="Pin" checked="@Model.Pin" type="checkbox" class="custom-control-input" id="Pin">
+            <label class="custom-control-label" for="Pin">Pin</label>
+        </div>
+        <div class="custom-control custom-switch ml-4">
+            <input name="Pin" checked="@Model.Enable" type="checkbox" class="custom-control-input" id="Enable">
+            <label class="custom-control-label" for="Enable">Enable</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Category">Category</label>
+        <select name="CategoryId" class="form-control" id="Category">
+            @foreach (var item in Model.Categories)
+            {
+                <option value="@item.Key" selected="@item.IsDefault">@item.Value</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="Supplier">Supplier</label>
+        <select name="SupplierId" class="form-control" id="Supplier">
+            @foreach (var item in Model.Suppliers)
+            {
+                <option value="@item.Key" selected="@item.IsDefault">@item.Value</option>
+            }
+        </select>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>

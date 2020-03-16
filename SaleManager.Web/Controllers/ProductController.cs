@@ -4,6 +4,8 @@ using SaleManager.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -33,11 +35,26 @@ namespace SaleManager.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Add(ProductModel model)
         {
+            model.Categories = _db.Category.Select(s => new DropDown() { Key = s.Id, Value = s.Name }).ToList();
+            model.Suppliers = _db.Supplier.Select(s => new DropDown() { Key = s.Id, Value = s.Name }).ToList();
             if (ModelState.IsValid)
             {
-                var product = _mapper.Map<Product>(model);
+                var product = model.Generate();
                 product.CreatedDate = DateTime.Now;
                 product.CreatedBy = _current.User;
+
+                if(model.Image != null && model.Image.ContentLength > 0)
+                {
+                    var imagePath = Server.MapPath("~/UploadFiles/Products/");
+                    model.Image.SaveAs(imagePath + "Temps/" + model.Image.FileName);
+                    Image image = Image.FromFile(imagePath + "Temps/" + model.Image.FileName);
+                    Image thumb = image.GetThumbnailImage(120, 120, () => false, IntPtr.Zero);
+                    thumb.Save(Path.ChangeExtension(imagePath + "Thumbnails/" + model.Barcode, "jpg"));
+                    model.ImgName = model.Barcode + ".jpg";
+                    model.ImgPath = Server.MapPath("~/UploadFiles/Products/Thumbnails/" + model.ImgName);
+                    product.Img = model.ImgName;
+                }
+
                 _db.Product.Add(product);
                 _db.SaveChanges();
                 TempData["Mess"] = "Add success";
@@ -81,14 +98,14 @@ namespace SaleManager.Web.Controllers
                 product.UpdatedDate = DateTime.Now;
                 product.Name = model.Name;
                 product.Quantity = model.Quantity;
-                product.Price = model.Price;
+                product.Price =  Convert.ToDecimal(model.Price);
                 product.CategoryId = model.CategoryId;
                 product.SupplierId = model.SupplierId;
                 product.Pin = model.Pin;
                 product.Enable = model.Enable;
                 product.ExpirationDate = model.ExpirationDate;
                 product.Unit = model.Unit;
-                product.Img = model.Img;
+                //product.Img = model.Img;
                 _db.Product.Attach(product);
                 _db.Entry(product).State = EntityState.Modified;
                 _db.SaveChanges();

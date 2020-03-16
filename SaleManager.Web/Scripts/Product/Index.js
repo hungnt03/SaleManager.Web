@@ -4,4 +4,6 @@
             $('.alert').alert('close');
         }, 10000);
     });
+
+    $('#datetimepicker1').datetimepicker();
 });

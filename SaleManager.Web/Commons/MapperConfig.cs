@@ -14,7 +14,7 @@ namespace SaleManager.Web.Commons
             {
                 cfg.CreateMap<Category, CategoryModel>();
                 cfg.CreateMap<Supplier, SupplierModel>();
-                cfg.CreateMap<Product, ProductModel>();
+                cfg.CreateMap<Product, ProductModel>().ForMember(d=>d.ImgName,opt=>opt.UseDestinationValue());
             });
             // only during development, validate your mappings; remove it before release
             //configuration.AssertConfigurationIsValid();

@@ -32,3 +32,7 @@ textarea {
 {
     display:none;
 }
+
+.with-fit {
+    width: fit-content !important;
+}

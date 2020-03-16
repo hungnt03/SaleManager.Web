@@ -9,62 +9,94 @@
 <link rel="stylesheet" href="@Url.Content("~/Content/" + controllerName + ".css")">
 <script src="@Url.Content("~/Scripts/" + controllerName + "/" + actionName + ".js")"></script>
 
-<form method="post" action="@Url.Action("Add")">
+<form method="post" action="@Url.Action("Add")" class="mx-auto with-fit" enctype="multipart/form-data">
     @Html.AntiForgeryToken()
-    <div class="form-group">
-        <label for="Barcode">Barcode</label>
-        <input name="Barcode" value="@Model.Barcode" type="text" class="form-control" required>
-        <small class="form-text text-danger">@Html.ValidationMessage("Barcode")</small>
+    <div class="form-group row">
+        <label for="Barcode" class="col-sm-2 col-form-label col-form-label-sm">Barcode</label>
+        <div class="col-sm-10">
+            <input name="Barcode" value="@Model.Barcode" type="text" class="form-control" required>
+            <small class="form-text text-danger">@Html.ValidationMessage("Barcode")</small>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="Name">Name</label>
-        <input name="Name" value="@Model.Name" type="text" class="form-control" id="Name">
-        <small class="form-text text-danger">@Html.ValidationMessage("Name")</small>
+    <div class="form-group row">
+        <label for="Name" class="col-sm-2 col-form-label col-form-label-sm">Name</label>
+        <div class="col-sm-10">
+            <input name="Name" value="@Model.Name" type="text" class="form-control" id="Name">
+            <small class="form-text text-danger">@Html.ValidationMessage("Name")</small>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="Price">Price</label>
-        <input name="Price" value="@Model.Price" type="text" class="form-control" id="Price">
-        <small class="form-text text-danger">@Html.ValidationMessage("Price")</small>
+    <div class="form-group row">
+        <label for="Price" class="col-sm-2 col-form-label col-form-label-sm">Price</label>
+        <div class="col-sm-10">
+            <input name="Price" value="@Model.Price" type="text" class="form-control" id="Price">
+            <small class="form-text text-danger">@Html.ValidationMessage("Price")</small>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="Category" class="col-sm-2 col-form-label col-form-label-sm">Category</label>
+        <div class="col-sm-10">
+            <select name="CategoryId" class="form-control" id="Category">
+                @foreach (var item in Model.Categories)
+                {
+                    <option value="@item.Key" selected="@item.IsDefault">@item.Value</option>
+                }
+            </select>
+            <small class="form-text text-danger">@Html.ValidationMessage("CategoryId")</small>
+        </div>        
+    </div>
+    <div class="form-group row">
+        <label for="Supplier" class="col-sm-2 col-form-label col-form-label-sm">Supplier</label>
+        <div class="col-sm-10">
+            <select name="SupplierId" class="form-control" id="Supplier">
+                @foreach (var item in Model.Suppliers)
+                {
+                    <option value="@item.Key" selected="@item.IsDefault">@item.Value</option>
+                }
+            </select>
+        </div>        
+    </div>
+    <div class="form-group row">
+        <label for="Img" class="col-sm-2 col-form-label col-form-label-sm">Img</label>
+        <div class="col-sm-10">
+            <input name="Image" type="file" class="form-control" id="Img">
+            <small class="form-text text-danger">@Html.ValidationMessage("ImgPath")</small>
+            <img src="@Model.ImgPath" alt="@Model.Name" class="img-thumbnail">
+        </div>        
     </div>
     <div class="row">
-        <div class="form-group col-md-6 col-sm-12">
-            <label for="Quantity">Quantity</label>
-            <input name="Price" value="@Model.Quantity" type="text" class="form-control" id="Quantity">
-            <small class="form-text text-danger">@Html.ValidationMessage("Quantity")</small>
-        </div>
-        <div class="form-group col-md-6 col-sm-12">
-            <label for="Quantity">Unit</label>
-            <input name="Unit" value="@Model.Unit" type="text" class="form-control" id="Unit">
-            <small class="form-text text-danger">@Html.ValidationMessage("Unit")</small>
-        </div>
-    </div>
-    <div class="d-flex flex-row justify-content-lg-start p-2">
-        <div class="custom-control custom-switch">
-            <input name="Pin" checked="@Model.Pin" type="checkbox" class="custom-control-input" id="Pin">
-            <label class="custom-control-label" for="Pin">Pin</label>
-        </div>
-        <div class="custom-control custom-switch ml-4">
-            <input name="Pin" checked="@Model.Enable" type="checkbox" class="custom-control-input" id="Enable">
-            <label class="custom-control-label" for="Enable">Enable</label>
+        <label for="Quantity" class="col-sm-2 col-form-label col-form-label-sm">Quantity</label>
+        <div class="col-sm-10 row">
+            <div class="col-sm-4">
+                <input name="Price" value="@Model.Quantity" type="text" class="form-control" id="Quantity">
+                <small class="form-text text-danger">@Html.ValidationMessage("Quantity")</small>
+            </div>
+            <div class="col-sm-6 row">
+                <label for="Quantity" class="col-sm-3 col-form-label col-form-label-sm">Unit</label>
+                <div class="col-sm-9">
+                    <input name="Unit" value="@Model.Unit" type="text" class="form-control" id="Unit">
+                    <small class="form-text text-danger">@Html.ValidationMessage("Unit")</small>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="form-group">
-        <label for="Category">Category</label>
-        <select name="CategoryId" class="form-control" id="Category">
-            @foreach (var item in Model.Categories)
-            {
-                <option value="@item.Key" selected="@item.IsDefault">@item.Value</option>
-            }
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="Supplier">Supplier</label>
-        <select name="SupplierId" class="form-control" id="Supplier">
-            @foreach (var item in Model.Suppliers)
-            {
-                <option value="@item.Key" selected="@item.IsDefault">@item.Value</option>
-            }
-        </select>
+    <div class="form-group row">
+        <div class="d-flex flex-row justify-content-start col-sm-10 offset-sm-2">
+            <div class="custom-control custom-switch">
+                <input name="PinValue" checked="@Model.Pin" type="checkbox" class="custom-control-input" id="Pin">
+                <label class="custom-control-label" for="Pin">Pin</label>
+            </div>
+            <div class="custom-control custom-switch pl-5">
+                <input name="EnableValue" checked="@Model.Enable" type="checkbox" class="custom-control-input" id="Enable">
+                <label class="custom-control-label" for="Enable">Enable</label>
+            </div>
+        </div>
+    </div>    
+    <div class="form-group row">
+        <label for="ExpirationDate" class="col-sm-2 col-form-label col-form-label-sm">ExpirationDate</label>
+        <div class='input-group col-10' id='ExpirationDate'>
+            <input name="ExpirationDate" value="@Model.ExpirationDate" type='text' class="form-control" id='datepicker' />
+            <small class="form-text text-danger">@Html.ValidationMessage("ExpirationDate")</small>
+        </div>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>

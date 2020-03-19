@@ -154,7 +154,9 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\SellMarketController.cs" />
     <Compile Include="Controllers\SupplierController.cs" />
+    <Compile Include="Controllers\UploadPartialController.cs" />
     <Compile Include="Entities\AspNetRoleClaims.cs">
       <DependentUpon>SaleManager.tt</DependentUpon>
     </Compile>
@@ -219,6 +221,7 @@
     <Compile Include="Models\CategoryModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\SupplierModel.cs" />
+    <Compile Include="Models\UploadPartialModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -480,11 +483,14 @@
     <Content Include="Views\Product\Add.cshtml" />
     <Content Include="Views\Product\Edit.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Shared\UploadPartial.cshtml" />
+    <Content Include="Views\SellMarket\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="UploadFiles\Products\Temps\" />
     <Folder Include="UploadFiles\Products\Thumbnails\" />
+    <Folder Include="Views\UploadPartial\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -42,7 +42,7 @@
                 }
             </select>
             <small class="form-text text-danger">@Html.ValidationMessage("CategoryId")</small>
-        </div>        
+        </div>
     </div>
     <div class="form-group row">
         <label for="Supplier" class="col-sm-2 col-form-label col-form-label-sm">Supplier</label>
@@ -53,15 +53,18 @@
                     <option value="@item.Key" selected="@item.IsDefault">@item.Value</option>
                 }
             </select>
-        </div>        
+        </div>
     </div>
     <div class="form-group row">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addImageModal">
+            Add Image
+        </button>
         <label for="Img" class="col-sm-2 col-form-label col-form-label-sm">Img</label>
         <div class="col-sm-10">
             <input name="Image" type="file" class="form-control" id="Img">
             <small class="form-text text-danger">@Html.ValidationMessage("ImgPath")</small>
             <img src="@Model.ImgPath" alt="@Model.Name" class="img-thumbnail">
-        </div>        
+        </div>
     </div>
     <div class="row">
         <label for="Quantity" class="col-sm-2 col-form-label col-form-label-sm">Quantity</label>
@@ -90,7 +93,7 @@
                 <label class="custom-control-label" for="Enable">Enable</label>
             </div>
         </div>
-    </div>    
+    </div>
     <div class="form-group row">
         <label for="ExpirationDate" class="col-sm-2 col-form-label col-form-label-sm">ExpirationDate</label>
         <div class='input-group col-10' id='ExpirationDate'>
@@ -100,3 +103,4 @@
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+

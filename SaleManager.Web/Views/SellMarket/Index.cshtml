@@ -1,0 +1,226 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <style>
+        tbody {
+            display: block;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        thead, tbody tr {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+        }
+
+        thead {
+            width: calc( 100% - 1em )
+        }
+    </style>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Hoá đơn 1111</a>
+                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
+                    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <form action="/" method="post">
+                        <table class="table table-hover p-1">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Tên sản phẩm</th>
+                                    <th scope="col">Đơn giá</th>
+                                    <th scope="col">Số lượng</th>
+                                    <th scope="col">Thành tiền</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mì Hảo Hảo chua cay</td>
+                                    <td>3.000</td>
+                                    <td>5</td>
+                                    <td>15.000</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Dầu ăn Simply 2l</td>
+                                    <td>75.000</td>
+                                    <td>1</td>
+                                    <td>75.000</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Thuốc lá vinataba</td>
+                                    <td>12.000</td>
+                                    <td>1</td>
+                                    <td>12.000</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Thuốc lá vinataba</td>
+                                    <td>12.000</td>
+                                    <td>1</td>
+                                    <td>12.000</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Thuốc lá vinataba</td>
+                                    <td>12.000</td>
+                                    <td>1</td>
+                                    <td>12.000</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Thuốc lá vinataba</td>
+                                    <td>12.000</td>
+                                    <td>1</td>
+                                    <td>12.000</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Thuốc lá vinataba</td>
+                                    <td>12.000</td>
+                                    <td>1</td>
+                                    <td>12.000</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Thuốc lá vinataba</td>
+                                    <td>12.000</td>
+                                    <td>1</td>
+                                    <td>12.000</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Thuốc lá vinataba</td>
+                                    <td>12.000</td>
+                                    <td>1</td>
+                                    <td>12.000</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Thuốc lá vinataba</td>
+                                    <td>12.000</td>
+                                    <td>1</td>
+                                    <td>12.000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="total-money">
+                            <div class="form-group row">
+                                <label for="coupount" class="col-md-3 col-form-label">Mã giảm giá</label>
+                                <div class="col-md-9 d-flex">
+                                    <input type="text" class="form-control flex-fill" id="coupount" value="abcdxyz">
+                                    <span class="flex-fill">-10%</span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="total" class="col-md-3 col-form-label">Tiền hàng</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" id="total" value="102.000">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="kt" class="col-md-3 col-form-label">Khấu trừ</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" id="kt" readonly value="10.200">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="tt" class="col-md-3 col-form-label">Thành tiền</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" id="tt" value="91.800">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="d-flex justify-content-between">
+                        <button type="button" class="btn btn-primary">Thanh toán</button>
+                        <button type="button" class="btn btn-warning">Xuất hd</button>
+                        <button type="button" class="btn btn-secondary">Nhập lại</button>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
+                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 row p-lg-2">
+            <div class="card col-sm-6 col-md-4 col-lg-3" style="width: 10rem;height:auto;">
+                <img src="~/UploadFiles/Products/Thumbnails/8934988021028.jpg" class="card-img-top" alt="..." style="width:auto;height:auto;">
+                <div class="card-body">
+                    <p class="card-text">Dầu ăn simply 2l</p>
+                </div>
+                <div class="card-body">
+                    <button type="button" class="btn btn-primary"><i class="fas fa-shopping-basket"></i></button>
+                </div>
+            </div>
+            <div class="card col-sm-6 col-md-4 col-lg-3" style="width: 10rem;height:auto;">
+                <img src="~/UploadFiles/Products/Thumbnails/8934988021028.jpg" class="card-img-top" alt="..." style="width:auto;height:auto;">
+                <div class="card-body">
+                    <p class="card-text">Dầu ăn simply 2l</p>
+                </div>
+                <div class="card-body">
+                    <button type="button" class="btn btn-primary"><i class="fas fa-shopping-basket"></i></button>
+                </div>
+            </div>
+            <div class="card col-sm-6 col-md-4 col-lg-3" style="width: 10rem;height:auto;">
+                <img src="~/UploadFiles/Products/Thumbnails/8934988021028.jpg" class="card-img-top" alt="..." style="width:auto;height:auto;">
+                <div class="card-body">
+                    <p class="card-text">Dầu ăn simply 2l</p>
+                </div>
+                <div class="card-body">
+                    <button type="button" class="btn btn-primary"><i class="fas fa-shopping-basket"></i></button>
+                </div>
+            </div>
+            <div class="card col-sm-6 col-md-4 col-lg-3" style="width: 10rem;height:auto;">
+                <img src="~/UploadFiles/Products/Thumbnails/8934988021028.jpg" class="card-img-top" alt="..." style="width:auto;height:auto;">
+                <div class="card-body">
+                    <p class="card-text">Dầu ăn simply 2l</p>
+                </div>
+                <div class="card-body">
+                    <button type="button" class="btn btn-primary"><i class="fas fa-shopping-basket"></i></button>
+                </div>
+            </div>
+            <div class="card col-sm-6 col-md-4 col-lg-3" style="width: 10rem;height:auto;">
+                <img src="~/UploadFiles/Products/Thumbnails/8934988021028.jpg" class="card-img-top" alt="..." style="width:auto;height:auto;">
+                <div class="card-body">
+                    <p class="card-text">Dầu ăn simply 2l</p>
+                </div>
+                <div class="card-body">
+                    <button type="button" class="btn btn-primary"><i class="fas fa-shopping-basket"></i></button>
+                </div>
+            </div>
+            <div class="card col-sm-6 col-md-4 col-lg-3" style="width: 10rem;height:auto;">
+                <img src="~/UploadFiles/Products/Thumbnails/8934988021028.jpg" class="card-img-top" alt="..." style="width:auto;height:auto;">
+                <div class="card-body">
+                    <p class="card-text">Dầu ăn simply 2l</p>
+                </div>
+                <div class="card-body">
+                    <button type="button" class="btn btn-primary"><i class="fas fa-shopping-basket"></i></button>
+                </div>
+            </div>
+            <div class="card col-sm-6 col-md-4 col-lg-3" style="width: 10rem;height:auto;">
+                <img src="~/UploadFiles/Products/Thumbnails/8934988021028.jpg" class="card-img-top" alt="..." style="width:auto;height:auto;">
+                <div class="card-body">
+                    <p class="card-text">Dầu ăn simply 2l</p>
+                </div>
+                <div class="card-body">
+                    <button type="button" class="btn btn-primary"><i class="fas fa-shopping-basket"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+

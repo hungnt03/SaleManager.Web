@@ -6,4 +6,5 @@
     });
 
     $('#datetimepicker1').datetimepicker();
+    $('td[data-type="currency"]').simpleMoneyFormat();
 });

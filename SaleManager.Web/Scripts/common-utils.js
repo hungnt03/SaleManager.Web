@@ -13,5 +13,6 @@
     $('span.field-validation-error').each(
         function (index) {
             $(this).parent().parent().find('input.form-control').addClass('is-invalid');
-        })
+        });
+
 });

@@ -43,10 +43,11 @@
                     <i class="far fa-trash-alt"></i>
                 </a>
             </th>
+            <td>@item.Barcode</td>
             <td><a href="@Url.Action("Edit",new { Id=item.Barcode })">@item.Name</a></td>
             <td>@item.Quantity</td>
             <td>@item.Unit</td>
-            <td>@item.Price</td>
+            <td data-type="currency">@item.Price</td>
             <td><img src="@Url.Content("~/UploadFiles/Products/Thumbnails/" + item.ImgName)" alt="@item.Name" class="img-thumbnail"></td>
         </tr>
         }

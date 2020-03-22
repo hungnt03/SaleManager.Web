@@ -19,6 +19,7 @@ namespace SaleManager.Web.Controllers
         {
             var products = _db.Product.ToList();
             var results = _mapper.Map<List<Product>, List<ProductModel>>(products);
+
             if (TempData["Mess"] != null)
                 ViewBag.Mess = TempData["Mess"].ToString();
             return View(results);

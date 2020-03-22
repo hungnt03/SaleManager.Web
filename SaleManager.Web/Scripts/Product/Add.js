@@ -3,5 +3,6 @@
         uiLibrary: 'bootstrap4'
     });
 
+
     $('input[data-type="currency"]').simpleMoneyFormat();
 });

@@ -64,14 +64,14 @@ namespace SaleManager.Web.Controllers
             return View("Add", model);
         }
 
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(string barcode)
         {
-            if (id == null)
+            if (string.IsNullOrEmpty(barcode))
             {
                 TempData["Mess"] = "Id not exists";
                 return RedirectToAction("Index");
             }
-            var product = _db.Product.Find(id);
+            var product = _db.Product.Find(barcode);
             if (product == null)
             {
                 TempData["Mess"] = "Data not exists";

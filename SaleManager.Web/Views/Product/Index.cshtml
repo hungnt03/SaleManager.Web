@@ -44,7 +44,7 @@
                 </a>
             </th>
             <td>@item.Barcode</td>
-            <td><a href="@Url.Action("Edit",new { Id=item.Barcode })">@item.Name</a></td>
+            <td><a href="@Url.Action("Edit",new { barcode=item.Barcode })">@item.Name</a></td>
             <td>@item.Quantity</td>
             <td>@item.Unit</td>
             <td data-type="currency">@item.Price</td>

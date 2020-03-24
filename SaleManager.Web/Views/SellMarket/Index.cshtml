@@ -10,23 +10,40 @@
 <style>
     tbody {
         display: block;
-        max-height: 400px;
+        max-height: 300px;
         overflow-y: auto;
     }
 
-        thead, tbody tr {
-            display: table;
-            width: 100%;
-            table-layout: fixed;
-        }
+    thead, tbody tr {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+    }
 
     thead {
         width: calc( 100% - 1em )
     }
+
+    img.card-size{
+        height:5.5rem;
+    }
+    span.card-size{
+        width:5rem;
+        height:5rem;
+        overflow: hidden;
+    }
+    div.product-list{
+        height:fit-content;
+        max-height:750px;
+        overflow-y:auto;
+    }
+    div.card{
+        min-width: 7rem;
+    }
 </style>
 
 <div class="row">
-    <div class="col-lg-6">
+    <div class="col-lg-7">
         <div class="form-group row">
             <input type="text" class="form-control col-8" id="barcode" placeholder="Barcode">
             <button type="button" class="btn btn-info col-2 offset-1"><i class="fas fa-search-plus"></i></button>
@@ -35,7 +52,7 @@
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" data-toggle="tab" href="#home">Home</a>
+                <a class="nav-link active" data-toggle="tab" href="#home">Hoá đơn 1111 <i class="far fa-times-circle"></i></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" data-toggle="tab" href="#menu1">Menu 1</a>
@@ -48,40 +65,10 @@
         <!-- Tab panes -->
         <div class="tab-content">
             <div id="home" class="container tab-pane active">
-                <br>
-                <h3>HOME</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-            <div id="menu1" class="container tab-pane fade">
-                <br>
-                <h3>Menu 1</h3>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-            <div id="menu2" class="container tab-pane fade">
-                <br>
-                <h3>Menu 2</h3>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-            </div>
-        </div>
-
-        @*<ul class="nav nav-tabs" id="nav-tab" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Hoá đơn 1111 <i class="far fa-times-circle"></i></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
-            </li>
-        </ul>
-        <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                 <form action="/" method="post">
                     <table class="table table-hover p-1">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
                                 <th scope="col">Tên sản phẩm</th>
                                 <th scope="col">Đơn giá</th>
                                 <th scope="col">Số lượng</th>
@@ -90,82 +77,124 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <th scope="row">1</th>
                                 <td>Mì Hảo Hảo chua cay</td>
-                                <td>3.000</td>
-                                <td>5</td>
-                                <td>15.000</td>
+                                <td class="pt-4">3.000</td>
+                                <td>
+                                    <div class="row">
+                                        <span class="col-6 text-left justify-content-center align-self-center">5</span>
+                                        <div class="d-flex flex-column justify-content-between">
+                                            <span><i class="fas fa-chevron-up"></i></span>
+                                            <span><i class="fas fa-chevron-down"></i></span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="pt-4">15.000</td>
                             </tr>
                             <tr>
-                                <th scope="row">2</th>
                                 <td>Dầu ăn Simply 2l</td>
-                                <td>75.000</td>
-                                <td>1</td>
-                                <td>75.000</td>
+                                <td class="pt-4">75.000</td>
+                                <td>
+                                    <div class="row">
+                                        <span class="col-6 text-left justify-content-center align-self-center">5</span>
+                                        <div class="d-flex flex-column justify-content-between">
+                                            <span><i class="fas fa-chevron-up"></i></span>
+                                            <span><i class="fas fa-chevron-down"></i></span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="pt-4">75.000</td>
                             </tr>
                             <tr>
-                                <th scope="row">3</th>
-                                <td>Thuốc lá vinataba</td>
-                                <td>12.000</td>
-                                <td>1</td>
-                                <td>12.000</td>
+                                <td>Dầu ăn Simply 2l</td>
+                                <td class="pt-4">75.000</td>
+                                <td>
+                                    <div class="row">
+                                        <span class="col-6 text-left justify-content-center align-self-center">5</span>
+                                        <div class="d-flex flex-column justify-content-between">
+                                            <span><i class="fas fa-chevron-up"></i></span>
+                                            <span><i class="fas fa-chevron-down"></i></span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="pt-4">75.000</td>
                             </tr>
                             <tr>
-                                <th scope="row">3</th>
-                                <td>Thuốc lá vinataba</td>
-                                <td>12.000</td>
-                                <td>1</td>
-                                <td>12.000</td>
+                                <td>Dầu ăn Simply 2l</td>
+                                <td class="pt-4">75.000</td>
+                                <td>
+                                    <div class="row">
+                                        <span class="col-6 text-left justify-content-center align-self-center">5</span>
+                                        <div class="d-flex flex-column justify-content-between">
+                                            <span><i class="fas fa-chevron-up"></i></span>
+                                            <span><i class="fas fa-chevron-down"></i></span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="pt-4">75.000</td>
                             </tr>
                             <tr>
-                                <th scope="row">3</th>
-                                <td>Thuốc lá vinataba</td>
-                                <td>12.000</td>
-                                <td>1</td>
-                                <td>12.000</td>
+                                <td>Dầu ăn Simply 2l</td>
+                                <td class="pt-4">75.000</td>
+                                <td>
+                                    <div class="row">
+                                        <span class="col-6 text-left justify-content-center align-self-center">5</span>
+                                        <div class="d-flex flex-column justify-content-between">
+                                            <span><i class="fas fa-chevron-up"></i></span>
+                                            <span><i class="fas fa-chevron-down"></i></span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="pt-4">75.000</td>
                             </tr>
                             <tr>
-                                <th scope="row">3</th>
-                                <td>Thuốc lá vinataba</td>
-                                <td>12.000</td>
-                                <td>1</td>
-                                <td>12.000</td>
+                                <td>Dầu ăn Simply 2l</td>
+                                <td class="pt-4">75.000</td>
+                                <td>
+                                    <div class="row">
+                                        <span class="col-6 text-left justify-content-center align-self-center">5</span>
+                                        <div class="d-flex flex-column justify-content-between">
+                                            <span><i class="fas fa-chevron-up"></i></span>
+                                            <span><i class="fas fa-chevron-down"></i></span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="pt-4">75.000</td>
                             </tr>
                             <tr>
-                                <th scope="row">3</th>
-                                <td>Thuốc lá vinataba</td>
-                                <td>12.000</td>
-                                <td>1</td>
-                                <td>12.000</td>
+                                <td>Dầu ăn Simply 2l</td>
+                                <td class="pt-4">75.000</td>
+                                <td>
+                                    <div class="row">
+                                        <span class="col-6 text-left justify-content-center align-self-center">5</span>
+                                        <div class="d-flex flex-column justify-content-between">
+                                            <span><i class="fas fa-chevron-up"></i></span>
+                                            <span><i class="fas fa-chevron-down"></i></span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="pt-4">75.000</td>
                             </tr>
                             <tr>
-                                <th scope="row">3</th>
-                                <td>Thuốc lá vinataba</td>
-                                <td>12.000</td>
-                                <td>1</td>
-                                <td>12.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Thuốc lá vinataba</td>
-                                <td>12.000</td>
-                                <td>1</td>
-                                <td>12.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Thuốc lá vinataba</td>
-                                <td>12.000</td>
-                                <td>1</td>
-                                <td>12.000</td>
+                                <td>Dầu ăn Simply 2l</td>
+                                <td class="pt-4">75.000</td>
+                                <td>
+                                    <div class="row">
+                                        <span class="col-6 text-left justify-content-center align-self-center">5</span>
+                                        <div class="d-flex flex-column justify-content-between">
+                                            <span><i class="fas fa-chevron-up"></i></span>
+                                            <span><i class="fas fa-chevron-down"></i></span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="pt-4">75.000</td>
                             </tr>
                         </tbody>
                     </table>
                     <div class="total-money">
                         <div class="form-group row">
-                            <label for="coupount" class="col-md-3 col-form-label">Mã giảm giá</label>
+                            <label for="coupount" class="col-md-3 col-form-label">Coupon</label>
                             <div class="col-md-9 d-flex">
-                                <input type="text" class="form-control flex-fill" id="coupount" value="abcdxyz">
+                                <input type="text" class="form-control flex-fill" id="coupon" value="abcdxyz">
                                 <span class="flex-fill">-10%</span>
                             </div>
                         </div>
@@ -189,81 +218,81 @@
                         </div>
                     </div>
                 </form>
-                <div class="d-flex justify-content-between col-10 offset-1">
+                <div class="d-flex justify-content-between col-10">
                     <button type="button" class="btn btn-primary">Thanh toán</button>
                     <button type="button" class="btn btn-warning">Xuất hd</button>
                     <button type="button" class="btn btn-secondary">Nhập lại</button>
                 </div>
             </div>
-
-            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
-            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
-        </div>*@
+            <div id="menu1" class="container tab-pane fade">
+                <br>
+                <h3>Menu 1</h3>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+            <div id="menu2" class="container tab-pane fade">
+                <br>
+                <h3>Menu 2</h3>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+            </div>
+        </div>
     </div>
 
-    <div class="col-lg-6 row p-lg-2">
-        <div class="card col-sm-6 col-md-4 col-lg-3 m-1" style="width: 10rem;height:auto;">
-            <img src="~/UploadFiles/Products/Thumbnails/8934988021028-.jpg" class="card-img-top" alt="..." style="width:auto;height:auto;">
-            <div class="card-body">
-                <p class="card-text">Dầu ăn simply 2l</p>
-            </div>
-            <div class="card-body">
-                <button type="button" class="btn btn-primary"><i class="fas fa-shopping-basket"></i></button>
-            </div>
+    <div class="col-lg-5 row product-list">
+        <div class="card col-sm-6 col-md-4 col-lg-3 m-1 pt-2 pb-2">
+            <span class="card-size rounded-circle border mx-auto">
+                <img src="~/UploadFiles/Products/Thumbnails/8934988021028.jpg" class="card-img-top card-size" alt="...">
+            </span>
+            <p class="card-text text-center mt-2">Dầu ăn simply 2l</p>
+            <button type="button" class="btn btn-primary"><i class="fas fa-shopping-basket"></i></button>
         </div>
-        <div class="card col-sm-6 col-md-4 col-lg-3 m-1" style="width: 10rem;height:auto;">
-            <img src="~/UploadFiles/Products/Thumbnails/8934988021028-.jpg" class="card-img-top" alt="..." style="width:auto;height:auto;">
-            <div class="card-body">
-                <p class="card-text">Dầu ăn simply 2l</p>
-            </div>
-            <div class="card-body">
-                <button type="button" class="btn btn-primary"><i class="fas fa-shopping-basket"></i></button>
-            </div>
+        <div class="card col-sm-6 col-md-4 col-lg-3 m-1 pt-2 pb-2">
+            <span class="card-size rounded-circle border mx-auto">
+                <img src="~/UploadFiles/Products/Thumbnails/8934988021028.jpg" class="card-img-top card-size" alt="...">
+            </span>
+            <p class="card-text text-center mt-2">Dầu ăn simply 2l</p>
+            <button type="button" class="btn btn-primary"><i class="fas fa-shopping-basket"></i></button>
         </div>
-        <div class="card col-sm-6 col-md-4 col-lg-3 m-1" style="width: 10rem;height:auto;">
-            <img src="~/UploadFiles/Products/Thumbnails/8934988021028-.jpg" class="card-img-top" alt="..." style="width:auto;height:auto;">
-            <div class="card-body">
-                <p class="card-text">Dầu ăn simply 2l</p>
-            </div>
-            <div class="card-body">
-                <button type="button" class="btn btn-primary"><i class="fas fa-shopping-basket"></i></button>
-            </div>
+        <div class="card col-sm-6 col-md-4 col-lg-3 m-1 pt-2 pb-2">
+            <span class="card-size rounded-circle border mx-auto">
+                <img src="~/UploadFiles/Products/Thumbnails/8934988021028.jpg" class="card-img-top card-size" alt="...">
+            </span>
+            <p class="card-text text-center mt-2">Dầu ăn simply 2l</p>
+            <button type="button" class="btn btn-primary"><i class="fas fa-shopping-basket"></i></button>
         </div>
-        <div class="card col-sm-6 col-md-4 col-lg-3 m-1" style="width: 10rem;height:auto;">
-            <img src="~/UploadFiles/Products/Thumbnails/8934988021028-.jpg" class="card-img-top" alt="..." style="width:auto;height:auto;">
-            <div class="card-body">
-                <p class="card-text">Dầu ăn simply 2l</p>
-            </div>
-            <div class="card-body">
-                <button type="button" class="btn btn-primary"><i class="fas fa-shopping-basket"></i></button>
-            </div>
+        <div class="card col-sm-6 col-md-4 col-lg-3 m-1 pt-2 pb-2">
+            <span class="card-size rounded-circle border mx-auto">
+                <img src="~/UploadFiles/Products/Thumbnails/8934988021028.jpg" class="card-img-top card-size" alt="...">
+            </span>
+            <p class="card-text text-center mt-2">Dầu ăn simply 2l</p>
+            <button type="button" class="btn btn-primary"><i class="fas fa-shopping-basket"></i></button>
         </div>
-        <div class="card col-sm-6 col-md-4 col-lg-3 m-1" style="width: 10rem;height:auto;">
-            <img src="~/UploadFiles/Products/Thumbnails/8934988021028-.jpg" class="card-img-top" alt="..." style="width:auto;height:auto;">
-            <div class="card-body">
-                <p class="card-text">Dầu ăn simply 2l</p>
-            </div>
-            <div class="card-body">
-                <button type="button" class="btn btn-primary"><i class="fas fa-shopping-basket"></i></button>
-            </div>
+        <div class="card col-sm-6 col-md-4 col-lg-3 m-1 pt-2 pb-2">
+            <span class="card-size rounded-circle border mx-auto">
+                <img src="~/UploadFiles/Products/Thumbnails/8934988021028.jpg" class="card-img-top card-size" alt="...">
+            </span>
+            <p class="card-text text-center mt-2">Dầu ăn simply 2l</p>
+            <button type="button" class="btn btn-primary"><i class="fas fa-shopping-basket"></i></button>
         </div>
-        <div class="card col-sm-6 col-md-4 col-lg-3 m-1" style="width: 10rem;height:auto;">
-            <img src="~/UploadFiles/Products/Thumbnails/8934988021028-.jpg" class="card-img-top" alt="..." style="width:auto;height:auto;">
-            <div class="card-body">
-                <p class="card-text">Dầu ăn simply 2l</p>
-            </div>
-            <div class="card-body">
-                <button type="button" class="btn btn-primary"><i class="fas fa-shopping-basket"></i></button>
-            </div>
+        <div class="card col-sm-6 col-md-4 col-lg-3 m-1 pt-2 pb-2">
+            <span class="card-size rounded-circle border mx-auto">
+                <img src="~/UploadFiles/Products/Thumbnails/8934988021028.jpg" class="card-img-top card-size" alt="...">
+            </span>
+            <p class="card-text text-center mt-2">Dầu ăn simply 2l</p>
+            <button type="button" class="btn btn-primary"><i class="fas fa-shopping-basket"></i></button>
         </div>
-        <div class="card col-sm-6 col-md-4 col-lg-3 m-1" style="width: 10rem;height:auto;">
-            <img src="~/UploadFiles/Products/Thumbnails/8934988021028-.jpg" class="card-img-top" alt="..." style="width:auto;height:auto;">
-            <div class="card-body">
-                <p class="card-text">Dầu ăn simply 2l</p>
-            </div>
-            <div class="card-body">
-                <button type="button" class="btn btn-primary"><i class="fas fa-shopping-basket"></i></button>
-            </div>
+        <div class="card col-sm-6 col-md-4 col-lg-3 m-1 pt-2 pb-2">
+            <span class="card-size rounded-circle border mx-auto">
+                <img src="~/UploadFiles/Products/Thumbnails/8934988021028.jpg" class="card-img-top card-size" alt="...">
+            </span>
+            <p class="card-text text-center mt-2">Dầu ăn simply 2l</p>
+            <button type="button" class="btn btn-primary"><i class="fas fa-shopping-basket"></i></button>
+        </div>
+        <div class="card col-sm-6 col-md-4 col-lg-3 m-1 pt-2 pb-2">
+            <span class="card-size rounded-circle border mx-auto">
+                <img src="~/UploadFiles/Products/Thumbnails/8934988021028.jpg" class="card-img-top card-size" alt="...">
+            </span>
+            <p class="card-text text-center mt-2">Dầu ăn simply 2l</p>
+            <button type="button" class="btn btn-primary"><i class="fas fa-shopping-basket"></i></button>
         </div>
     </div>
 </div>

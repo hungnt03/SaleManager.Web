@@ -9,7 +9,9 @@ namespace SaleManager.Web
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+                        "~/Scripts/jquery-{version}.js",
+                        "~/Scripts/popper.min.js",
+                        "~/Scripts/bootstrap.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -23,10 +25,9 @@ namespace SaleManager.Web
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/popper.min.js",
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/moment.min.js",
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(                      
+                      //"~/Scripts/bootstrap.js",
+                      //"~/Scripts/moment.min.js",
                       "~/Scripts/bootstrap-datepicker.js",
                       "~/Scripts/respond.js"));
 

@@ -40,6 +40,7 @@ namespace SaleManager.Web.Models
         public bool Enable { get { return EnableValue.Equals("on"); } }
         public string PinValue { set; get; }
         public string EnableValue { set; get; }
+        [DataType(DataType.Date)]
         public Nullable<System.DateTime> ExpirationDate { get; set; }
         [MaxLength(50)]
         public string Unit { get; set; }

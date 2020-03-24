@@ -36,3 +36,13 @@ textarea {
 .with-fit {
     width: fit-content !important;
 }
+
+.padding-10{
+    padding:10px;
+}
+
+.fa-calendar-alt:hover {
+    color: #fff;
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+}

@@ -24,6 +24,7 @@ namespace SaleManager.Web
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                      "~/Scripts/popper.min.js",
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/moment.min.js",
                       "~/Scripts/bootstrap-datepicker.js",

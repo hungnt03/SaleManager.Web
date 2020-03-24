@@ -78,7 +78,7 @@
             </div>
         </div>
     </div>
-    <div class="form-group row">
+    <div class="form-group row pt-3">
         <div class="d-flex flex-row justify-content-start col-sm-10 offset-sm-2">
             <div class="custom-control custom-switch">
                 <input name="PinValue" checked="@Model.Pin" type="checkbox" class="custom-control-input" id="Pin">
@@ -92,9 +92,12 @@
     </div>
     <div class="form-group row">
         <label for="ExpirationDate" class="col-sm-2 col-form-label col-form-label-sm">ExpirationDate</label>
-        <div class='input-group col-10' id='ExpirationDate'>
-            <input name="ExpirationDate" value="@Model.ExpirationDate" type='text' class="form-control" id='datepicker' />
-            <small class="form-text text-danger">@Html.ValidationMessage("ExpirationDate")</small>
+        <div class='input-group col-10 date' data-provide="datepicker" id='ExpirationDate'>
+            <input name="ExpirationDate" value="@Html.ValueFor(model => model.ExpirationDate, "{0:yyyy/MM/dd}")" type='text' class="form-control datepicker" />
+            <div class="input-group-addon">
+                <i class="far fa-calendar-alt padding-10 border rounded-right border-left-0"></i>
+            </div>
+            <small class="form-text text-danger col-12 pl-0 ml-0">@Html.ValidationMessage("ExpirationDate")</small>
         </div>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>

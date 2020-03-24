@@ -15,4 +15,5 @@
             $(this).parent().parent().find('input.form-control').addClass('is-invalid');
         });
 
+    $.fn.datepicker.defaults.format = "yyyy/mm/dd";
 });

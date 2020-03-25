@@ -44,9 +44,11 @@
 
 <div class="row">
     <div class="col-lg-7">
-        <div class="form-group row">
-            <input type="text" class="form-control col-8" id="barcode" placeholder="Barcode">
-            <button type="button" class="btn btn-info col-2 offset-1"><i class="fas fa-search-plus"></i></button>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Barcode" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fas fa-search-plus"></i></button>
+            </div>
         </div>
 
         <!-- Nav tabs -->
@@ -68,18 +70,22 @@
                 <form action="/" method="post">
                     <table class="table table-hover p-1">
                         <thead>
-                            <tr>
-                                <th scope="col">Tên sản phẩm</th>
-                                <th scope="col">Đơn giá</th>
-                                <th scope="col">Số lượng</th>
-                                <th scope="col">Thành tiền</th>
+                            <tr class="row m-0">
+                                <th class="d-inline-block col-1"></th>
+                                <th class="d-inline-block col-1">#</th>
+                                <th class="d-inline-block col-4">Tên sản phẩm</th>
+                                <th class="d-inline-block col-2">Đơn giá</th>
+                                <th class="d-inline-block col-2">Số lượng</th>
+                                <th class="d-inline-block col-2">Thành tiền</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Mì Hảo Hảo chua cay</td>
-                                <td class="pt-4">3.000</td>
-                                <td>
+                            <tr class="row m-0">
+                                <td class="d-inline-block col-1"><a href="#"><i class="far fa-trash-alt"></i></a></td>
+                                <td class="d-inline-block col-1">1</td>
+                                <td class="d-inline-block col-4">Mì Hảo Hảo chua cay</td>
+                                <td class="d-inline-block col-2">3.000</td>
+                                <td class="d-inline-block col-2">
                                     <div class="row">
                                         <span class="col-6 text-left justify-content-center align-self-center">5</span>
                                         <div class="d-flex flex-column justify-content-between">
@@ -88,12 +94,14 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="pt-4">15.000</td>
+                                <td class="d-inline-block col-2">15.000</td>
                             </tr>
                             <tr>
-                                <td>Dầu ăn Simply 2l</td>
-                                <td class="pt-4">75.000</td>
-                                <td>
+                                <td class="d-inline-block col-1"><a href="#"><i class="far fa-trash-alt"></i></a></td>
+                                <td class="d-inline-block col-1">2</td>
+                                <td class="d-inline-block col-4">Dầu ăn Simply 2l</td>
+                                <td class="d-inline-block col-2">75.000</td>
+                                <td class="d-inline-block col-2">
                                     <div class="row">
                                         <span class="col-6 text-left justify-content-center align-self-center">5</span>
                                         <div class="d-flex flex-column justify-content-between">
@@ -102,12 +110,14 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="pt-4">75.000</td>
+                                <td class="d-inline-block col-2">75.000</td>
                             </tr>
                             <tr>
-                                <td>Dầu ăn Simply 2l</td>
-                                <td class="pt-4">75.000</td>
-                                <td>
+                                <td class="d-inline-block col-1"><a href="#"><i class="far fa-trash-alt"></i></a></td>
+                                <td class="d-inline-block col-1">2</td>
+                                <td class="d-inline-block col-4">Dầu ăn Simply 2l</td>
+                                <td class="d-inline-block col-2">75.000</td>
+                                <td class="d-inline-block col-2">
                                     <div class="row">
                                         <span class="col-6 text-left justify-content-center align-self-center">5</span>
                                         <div class="d-flex flex-column justify-content-between">
@@ -116,12 +126,14 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="pt-4">75.000</td>
+                                <td class="d-inline-block col-2">75.000</td>
                             </tr>
                             <tr>
-                                <td>Dầu ăn Simply 2l</td>
-                                <td class="pt-4">75.000</td>
-                                <td>
+                                <td class="d-inline-block col-1"><a href="#"><i class="far fa-trash-alt"></i></a></td>
+                                <td class="d-inline-block col-1">2</td>
+                                <td class="d-inline-block col-4">Dầu ăn Simply 2l</td>
+                                <td class="d-inline-block col-2">75.000</td>
+                                <td class="d-inline-block col-2">
                                     <div class="row">
                                         <span class="col-6 text-left justify-content-center align-self-center">5</span>
                                         <div class="d-flex flex-column justify-content-between">
@@ -130,12 +142,14 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="pt-4">75.000</td>
+                                <td class="d-inline-block col-2">75.000</td>
                             </tr>
                             <tr>
-                                <td>Dầu ăn Simply 2l</td>
-                                <td class="pt-4">75.000</td>
-                                <td>
+                                <td class="d-inline-block col-1"><a href="#"><i class="far fa-trash-alt"></i></a></td>
+                                <td class="d-inline-block col-1">2</td>
+                                <td class="d-inline-block col-4">Dầu ăn Simply 2l</td>
+                                <td class="d-inline-block col-2">75.000</td>
+                                <td class="d-inline-block col-2">
                                     <div class="row">
                                         <span class="col-6 text-left justify-content-center align-self-center">5</span>
                                         <div class="d-flex flex-column justify-content-between">
@@ -144,12 +158,14 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="pt-4">75.000</td>
+                                <td class="d-inline-block col-2">75.000</td>
                             </tr>
                             <tr>
-                                <td>Dầu ăn Simply 2l</td>
-                                <td class="pt-4">75.000</td>
-                                <td>
+                                <td class="d-inline-block col-1"><a href="#"><i class="far fa-trash-alt"></i></a></td>
+                                <td class="d-inline-block col-1">2</td>
+                                <td class="d-inline-block col-4">Dầu ăn Simply 2l</td>
+                                <td class="d-inline-block col-2">75.000</td>
+                                <td class="d-inline-block col-2">
                                     <div class="row">
                                         <span class="col-6 text-left justify-content-center align-self-center">5</span>
                                         <div class="d-flex flex-column justify-content-between">
@@ -158,12 +174,14 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="pt-4">75.000</td>
+                                <td class="d-inline-block col-2">75.000</td>
                             </tr>
                             <tr>
-                                <td>Dầu ăn Simply 2l</td>
-                                <td class="pt-4">75.000</td>
-                                <td>
+                                <td class="d-inline-block col-1"><a href="#"><i class="far fa-trash-alt"></i></a></td>
+                                <td class="d-inline-block col-1">2</td>
+                                <td class="d-inline-block col-4">Dầu ăn Simply 2l</td>
+                                <td class="d-inline-block col-2">75.000</td>
+                                <td class="d-inline-block col-2">
                                     <div class="row">
                                         <span class="col-6 text-left justify-content-center align-self-center">5</span>
                                         <div class="d-flex flex-column justify-content-between">
@@ -172,30 +190,20 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="pt-4">75.000</td>
-                            </tr>
-                            <tr>
-                                <td>Dầu ăn Simply 2l</td>
-                                <td class="pt-4">75.000</td>
-                                <td>
-                                    <div class="row">
-                                        <span class="col-6 text-left justify-content-center align-self-center">5</span>
-                                        <div class="d-flex flex-column justify-content-between">
-                                            <span><i class="fas fa-chevron-up"></i></span>
-                                            <span><i class="fas fa-chevron-down"></i></span>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="pt-4">75.000</td>
+                                <td class="d-inline-block col-2">75.000</td>
                             </tr>
                         </tbody>
                     </table>
                     <div class="total-money">
                         <div class="form-group row">
                             <label for="coupount" class="col-md-3 col-form-label">Coupon</label>
-                            <div class="col-md-9 d-flex">
-                                <input type="text" class="form-control flex-fill" id="coupon" value="abcdxyz">
-                                <span class="flex-fill">-10%</span>
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="abcxyz" aria-label="coupon" aria-describedby="basic-addon2">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" id="basic-addon2">-10%</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group row">

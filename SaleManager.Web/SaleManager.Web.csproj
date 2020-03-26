@@ -124,6 +124,9 @@
       <Private>True</Private>
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="X.PagedList.Mvc">
+      <HintPath>..\packages\X.PagedList.Mvc.8.0.5\lib\net48\X.PagedList.Mvc.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
@@ -147,6 +150,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Commons\Constant.cs" />
     <Compile Include="Commons\Current.cs" />
     <Compile Include="Commons\DropDown.cs" />
     <Compile Include="Commons\MapperConfig.cs" />
@@ -265,7 +269,8 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Category\Index.js" />
-    <Content Include="Scripts\common-utils.js" />
+    <Content Include="Scripts\Common\ajax-common.js" />
+    <Content Include="Scripts\Common\common-utils.js" />
     <Content Include="Scripts\bootstrap.min.js.map" />
     <Content Include="Scripts\bootstrap.js.map" />
     <Content Include="Scripts\bootstrap.bundle.min.js.map" />
@@ -362,6 +367,7 @@
     <Content Include="Content\bootstrap\bootstrap.less" />
     <Content Include="Content\bootstrap\badges.less" />
     <Content Include="Content\bootstrap\alerts.less" />
+    <Content Include="Scripts\Common\constant.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
@@ -475,6 +481,7 @@
     <Content Include="Scripts\Product\Add.js" />
     <Content Include="Scripts\Product\Edit.js" />
     <Content Include="Scripts\Product\Index.js" />
+    <Content Include="Scripts\SellMarket\index.js" />
     <Content Include="Scripts\simple.money.format.js" />
     <Content Include="Scripts\src\index.js" />
     <Content Include="Scripts\src\methods\defaults.js" />

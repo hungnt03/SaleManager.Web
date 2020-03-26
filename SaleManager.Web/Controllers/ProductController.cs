@@ -1,4 +1,5 @@
-﻿using SaleManager.Web.Commons;
+﻿using Newtonsoft.Json;
+using SaleManager.Web.Commons;
 using SaleManager.Web.Entities;
 using SaleManager.Web.Models;
 using System;
@@ -15,13 +16,15 @@ namespace SaleManager.Web.Controllers
     public class ProductController : BaseController
     {
         // GET: Product
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
+            if (page == null) page = 1;
             var products = _db.Product.ToList();
             var results = _mapper.Map<List<Product>, List<ProductModel>>(products);
 
             if (TempData["Mess"] != null)
                 ViewBag.Mess = TempData["Mess"].ToString();
+
             return View(results);
         }
         public ActionResult Add()
@@ -117,14 +120,14 @@ namespace SaleManager.Web.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(string barcode)
         {
-            if (id == null)
+            if (string.IsNullOrEmpty(barcode))
             {
                 TempData["Mess"] = "Id not exists";
                 return RedirectToAction("Index");
             }
-            var product = _db.Product.Find(id);
+            var product = _db.Product.Find(barcode);
             if (product == null)
             {
                 TempData["Mess"] = "Data not exists";
@@ -134,6 +137,29 @@ namespace SaleManager.Web.Controllers
             _db.SaveChanges();
             TempData["Mess"] = "Delete success";
             return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult Search(string condition)
+        {
+            var products = _db.Product.Where(p => p.Barcode.Contains(condition) || p.Name.Contains(condition)).ToList();
+            var results = _mapper.Map<List<Product>, List<ProductModel>>(products);
+            return View(products);
+        }
+        [HttpPost]
+        public ActionResult Search2(string condition)
+        {
+            var products = _db.Product.Where(p => p.Barcode.Contains(condition) || p.Name.Contains(condition)).ToList();
+            if (products.Count == 1)
+                return Content(JsonConvert.SerializeObject(new { Bill = products.FirstOrDefault(), Recomment = string.Empty }));
+            if (products.Count > 1)
+                return Content(JsonConvert.SerializeObject(new { Bill = string.Empty, Recomment = products }));
+            return Content(JsonConvert.SerializeObject(new { Bill = string.Empty, Recomment = string.Empty }));
+        }
+        public ActionResult AutoComplete(string condition)
+        {
+            var products = _db.Product.Where(p => p.Barcode.Contains(condition) || p.Name.Contains(condition)).Select(s=>s.Name).ToList();
+            return Content(JsonConvert.SerializeObject(products));
         }
     }
 }

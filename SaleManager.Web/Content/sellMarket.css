@@ -1,14 +1,47 @@
-﻿body {
-}
-
-i.far.fa-times-circle:hover {
+﻿i.far.fa-times-circle:hover {
     font-size: large;
 }
 
-i.fas.fa-chevron-up:hover{
+i.fas.fa-chevron-up:hover {
     font-size: large;
 }
 
 i.fas.fa-chevron-down:hover {
     font-size: large;
+}
+
+tbody {
+    display: block;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+    thead, tbody tr {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+    }
+
+thead {
+    width: calc( 100% - 1em )
+}
+
+img.card-size {
+    height: 5.5rem;
+}
+
+span.card-size {
+    width: 5rem;
+    height: 5rem;
+    overflow: hidden;
+}
+
+div.product-list {
+    height: fit-content;
+    max-height: 750px;
+    overflow-y: auto;
+}
+
+div.card {
+    min-width: 7rem;
 }

@@ -1,19 +1,76 @@
-﻿$(document).ready(function () {    
+﻿const BASE_URL = "https://localhost:44346";
+
+$(document).ready(function () {       
     $('td[data-type="currency"]').simpleMoneyFormat();
     $('input[data-type="currency"]').simpleMoneyFormat();
 
-    $('input#recomment-name').autocomplete({
-        source: function (req, res) {
+    var delayTimer;
+    $('input#recomment-name').change(searchProduct);
+    var ajaxGetProduct = fetchData({ 'condition': $('input#recomment-name').val() }, '/SaleMarket/SeachProduct/');
+    function searchProduct() {
+        var condition = $('input#recomment-name').val();
+        if (condition == null || condition == '') return;
+        if (delayTimer) clearTimeout(delayTimer);
+        //delayTimer = setTimeout(function () {
             $.ajax({
-                url: "https://localhost:44346/Product/AutoComplete/?condition=" + encodeURIComponent(req.term),
-                dataType: "json",
-                success: function (data) {
-                    res(data);
-                }
+                data: {'condition':condition},
+                dataType: 'json',
+                url: '/SellMarket/SeachProduct'
+            }).done(function (data) {
+                // If successful
+                addRow(data)
+                console.log(data);
+            }).fail(function (jqXHR, textStatus, errorThrown) {
+                // If fail
+                console.log(textStatus + ': ' + errorThrown);
             });
-        },
-        autoFocus: true,
-        delay: 500,
-        minLength: 2
-    });
+        //}, 500); // Will do the ajax stuff after 1000 ms, or 1 s
+    }
+
+    
+    //$('input#recomment-name').autocomplete({
+    //    source: function (req, res) {
+    //        $.ajax({
+    //            url: "https://localhost:44346/Product/AutoComplete/?condition=" + encodeURIComponent(req.term),
+    //            dataType: "json",
+    //            success: function (data) {
+    //                res(data);
+    //            }
+    //        });
+    //    },
+    //    autoFocus: true,
+    //    delay: 500,
+    //    minLength: 2
+    //});
 });
+
+// Add row to bill
+function addRow(data) {
+    if (data.Bill == '') return;
+    var htmlRow = "<tr>";
+    htmlRow += '<td class="d-inline-block col-1"><a href="#"><i class="far fa-trash-alt"></i></a></td>';
+    htmlRow += '<td class="d-inline-block col-1">2</td>';
+    htmlRow += '<td class="d-inline-block col-4">' + data.Bill.Name + '</td>';
+    htmlRow += '<td class="d-inline-block col-2">' + data.Bill.Price + '</td>';
+    htmlRow += '<td class="d-inline-block col-2">';
+    htmlRow += '<div class="row">';
+    htmlRow += '<span class="col-6 text-left justify-content-center align-self-center">' + data.Bill.Quantity + '</span>';
+    htmlRow += '<div class="d-flex flex-column justify-content-between">';
+    htmlRow += '<span><i class="fas fa-chevron-up"></i></span>';
+    htmlRow += '<span><i class="fas fa-chevron-down"></i></span>';
+    htmlRow += '</div>';
+    htmlRow += '</div>';
+    htmlRow += '</td>';
+    htmlRow += '<td class="d-inline-block col-2">' + data.Bill.Price + '</td>';
+    htmlRow += '</tr>';
+    $('tbody').append(htmlRow)
+}
+
+var fetchData = function (query, dataURL) {
+    // Return the $.ajax promise
+    return $.ajax({
+        data: query,
+        dataType: 'json',
+        url: BASE_URL + dataURL
+    });
+}

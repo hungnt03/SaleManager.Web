@@ -64,19 +64,4 @@ namespace SaleManager.Web.Models
             return product;
         }
     }
-
-    public class ProductRecommentModel
-    {
-        public string Barcode { get; set; }
-        public string Name { set; get; }
-        public string ImgPath { set; get; }
-    }
-    public class ProductBillModel
-    {
-        public string Barcode { get; set; }
-        public string Name { set; get; }
-        public int Quantity { set; get; }
-        public int Price { set; get; }
-        public int Total { set; get; }
-    }
 }

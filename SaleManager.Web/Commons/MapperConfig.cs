@@ -17,6 +17,9 @@ namespace SaleManager.Web.Commons
                 cfg.CreateMap<Product, ProductModel>()
                     .ForMember(d=>d.ImgName,opt=>opt.MapFrom(s=>s.Img))
                     .ForMember(d => d.Price, opt => opt.MapFrom(s => s.Price.ToString().Replace(".00",string.Empty)));
+                cfg.CreateMap<Product, ProductRecommentModel>();
+                cfg.CreateMap<Product, ProductBillModel>()
+                    .ForMember(d => d.Price, opt => opt.MapFrom(s => s.Price.ToString()));
             });
             // only during development, validate your mappings; remove it before release
             //configuration.AssertConfigurationIsValid();

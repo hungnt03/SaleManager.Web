@@ -4,9 +4,8 @@
     var controllerName = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString();
     var actionName = HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString();
 }
-@*<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />*@
 <link rel="stylesheet" href="@Url.Content("~/Content/" + controllerName + ".css")">
-@*<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>*@
+<script src="@Url.Content("~/Scripts/" + controllerName + "/" + actionName + ".js")"></script>
 
 <div class="row">
     <div class="col-lg-7">
@@ -48,9 +47,9 @@
                         <tbody>
                             <tr class="row m-0">
                                 <td class="d-inline-block col-1"><a href="#"><i class="far fa-trash-alt"></i></a></td>
-                                <td class="d-inline-block col-1">1</td>
-                                <td class="d-inline-block col-4">Mì Hảo Hảo chua cay</td>
-                                <td class="d-inline-block col-2" data-type="currency">3000</td>
+                                <td class="d-inline-block col-1"><span>1</span></td>
+                                <td class="d-inline-block col-4"><span>Mì Hảo Hảo chua cay</span></td>
+                                <td class="d-inline-block col-2" data-type="currency"><span>3000</span></td>
                                 <td class="d-inline-block col-2">
                                     <div class="row">
                                         <span class="col-6 text-left justify-content-center align-self-center">5</span>

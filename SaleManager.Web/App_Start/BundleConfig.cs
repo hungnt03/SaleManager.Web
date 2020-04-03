@@ -16,6 +16,9 @@ namespace SaleManager.Web
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
+                        "~/Scripts/knockout-3.5.1.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/commonjs").Include(
                         "~/Scripts/common-utils*", 
                         "~/Scripts/simple.money.format.js"));

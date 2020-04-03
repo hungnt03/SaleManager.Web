@@ -1,5 +1,44 @@
 ﻿const BASE_URL = "https://localhost:44346";
 
+function Bill(id, name) {
+    this.id = id;
+    this.name = name;
+}
+
+var SellViewModel = function () {
+    var self = this;
+    self.bills = ko.observableArray();
+    self.products = ko.observableArray();
+    self.error = ko.observable();
+    self.condition = ko.observable();
+
+    function ajaxHelper(uri, method, data) {
+        self.error(''); // Clear error message
+        return $.ajax({
+            type: method,
+            url: uri,
+            dataType: 'json',
+            contentType: 'application/json',
+            data: data ? JSON.stringify(data) : null
+        }).fail(function (jqXHR, textStatus, errorThrown) {
+            self.error(errorThrown);
+        });
+    }
+
+    function getProduct() {
+        var getBills = ajaxHelper('/SellMarket/SeachProduct', 'GET');
+        var getProducts = ajaxHelper('/SellMarket/SeachProduct', 'GET');
+        $.when(getBills, getProducts).done(function (bill, product) {
+            self.bills(bill);
+            self.products(product);
+            console.log(bill.data);
+            console.log(product.data);
+        });
+    };
+};
+
+
+
 $(document).ready(function () {       
     $('td[data-type="currency"]').simpleMoneyFormat();
     $('input[data-type="currency"]').simpleMoneyFormat();

@@ -16,21 +16,55 @@ namespace SaleManager.Web.Controllers
         {
             return View();
         }
-        
-        public ActionResult SeachProduct(string condition)
+        [HttpPost]
+        public ActionResult SearchProduct(string condition)
+        {
+            var product = _db.Product.Where(p => p.Barcode.Equals(condition) || p.Name.Equals(condition)).FirstOrDefault();            
+            return Content(JsonConvert.SerializeObject(new { data = product }));
+        }
+        [HttpPost]
+        public ActionResult SearchProducts(string condition)
         {
             var products = _db.Product.Where(p => p.Barcode.Contains(condition) || p.Name.Contains(condition)).ToList();
-            if (products.Count == 1)
+            return Content(JsonConvert.SerializeObject(new { data = products }));
+        }
+        public ActionResult CreateTransaction()
+        {
+            var idMax = _db.Transaction.OrderByDescending(o => o.Id).Select(s=>s.Id).FirstOrDefault();
+            var transaction = new Transaction();
+            transaction.Id = idMax + 1;
+            transaction.CreatedDate = DateTime.Now;
+            transaction.CreatedBy = _current.User;
+            transaction.Type = 2;
+            _db.Transaction.Add(transaction);
+            _db.SaveChanges();
+            return Content(JsonConvert.SerializeObject(new { data = transaction.Id }));
+        }
+
+        public ActionResult GetTransaction()
+        {
+            var results = new List<TransactionModel>();
+            var transactions = _db.Transaction.Where(c => c.Type == 2).ToList();            
+            foreach(var tran in transactions)
             {
-                var result = _mapper.Map<Product, ProductBillModel>(products.FirstOrDefault());
-                return Content(JsonConvert.SerializeObject(new { Bill = result, Recomment = string.Empty }));
-            }            
-            if (products.Count > 1)
-            {
-                var results = _mapper.Map<List<Product>, List<ProductBillModel>>(products);
-                return Content(JsonConvert.SerializeObject(new { Bill = string.Empty, Recomment = results }));
-            }                
-            return Content(JsonConvert.SerializeObject(new { Bill = string.Empty, Recomment = string.Empty }));
+                var result = new TransactionModel();
+                result.Id = tran.Id;
+                var details = _db.TransactionDetail.Where(c => c.TracsactionId == tran.Id).ToList();
+                result.Details = new List<TransactionDetailModel>();
+                foreach(var elm in details)
+                {
+                    var tranDetail = new TransactionDetailModel();
+                    var product = _db.Product.Find(elm.Barcode);
+                    tranDetail.Amount = elm.Amount ?? 0;
+                    tranDetail.Barcode = elm.Barcode;
+                    tranDetail.Name = product.Name;
+                    tranDetail.Price = product.Price ?? 0;
+                    tranDetail.Quantity = elm.Quantity;
+                    result.Details.Add(tranDetail);
+                }
+                results.Add(result);
+            }
+            return Content(JsonConvert.SerializeObject(new { data = results }));
         }
     }
 }

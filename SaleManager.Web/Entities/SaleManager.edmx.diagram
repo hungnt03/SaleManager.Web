@@ -14,16 +14,16 @@
         <EntityTypeShape EntityType="HungTestModel.Category" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HungTestModel.Customer" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HungTestModel.Discount" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HungTestModel.Product" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HungTestModel.Supplier" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HungTestModel.SysParam" Width="1.5" PointX="9.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HungTestModel.Transaction" Width="1.5" PointX="9.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HungTestModel.TransactionDetail" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="HungTestModel.FK_AspNetRoleClaims_AspNetRoles_RoleId" ManuallyRouted="false" />
         <AssociationConnector Association="HungTestModel.FK_AspNetUserClaims_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="HungTestModel.FK_AspNetUserLogins_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="HungTestModel.FK_AspNetUserTokens_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="HungTestModel.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="HungTestModel.Transaction" Width="1.5" PointX="10.75" PointY="8.75" />
+        <EntityTypeShape EntityType="HungTestModel.TransactionDetail" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="HungTestModel.Product" Width="1.5" PointX="7.375" PointY="8.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

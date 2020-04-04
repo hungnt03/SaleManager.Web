@@ -20,9 +20,8 @@ namespace SaleManager.Web.Entities
         public string CreatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDate { get; set; }
         public string UpdatedBy { get; set; }
-        public int SuplierId { get; set; }
         public int Quantity { get; set; }
         public bool IsPayment { get; set; }
-        public decimal Amount { get; set; }
+        public Nullable<int> Amount { get; set; }
     }
 }

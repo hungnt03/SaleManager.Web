@@ -102,7 +102,7 @@ namespace SaleManager.Web.Controllers
                 product.UpdatedDate = DateTime.Now;
                 product.Name = model.Name;
                 product.Quantity = model.Quantity;
-                product.Price =  Convert.ToDecimal(model.Price);
+                product.Price =  model.Price;
                 product.CategoryId = model.CategoryId;
                 product.SupplierId = model.SupplierId;
                 product.Pin = model.Pin;

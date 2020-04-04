@@ -45,3 +45,8 @@ div.product-list {
 div.card {
     min-width: 7rem;
 }
+
+p.card-text.text-center.mt-2 {
+    height: 2.9rem;
+    overflow: hidden;
+}

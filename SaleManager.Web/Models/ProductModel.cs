@@ -27,7 +27,7 @@ namespace SaleManager.Web.Models
         [Required]
         [DataType(DataType.Currency)]
         [MaxLength(7)]
-        public string Price { set; get; }
+        public int Price { set; get; }
         public List<DropDown> Categories { set; get; }
         [Required]
         [RegularExpression(@"^[0-9]*$")]
@@ -57,7 +57,7 @@ namespace SaleManager.Web.Models
             product.Img = this.ImgName;
             product.Name = this.Name;
             product.Pin = this.Pin;
-            product.Price = Convert.ToDecimal(this.Price.Replace(",",string.Empty));
+            product.Price = this.Price;
             product.Quantity = this.Quantity;
             product.SupplierId = this.SupplierId;
             product.Unit = this.Unit;

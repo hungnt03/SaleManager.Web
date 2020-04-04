@@ -20,12 +20,11 @@ namespace SaleManager.Web.Entities
         public Nullable<System.DateTime> UpdatedDate { get; set; }
         public string UpdatedBy { get; set; }
         public int Type { get; set; }
-        public int CustomerId { get; set; }
-        public int SuplierId { get; set; }
+        public Nullable<int> CustomerId { get; set; }
         public bool IsPayment { get; set; }
-        public decimal Amount { get; set; }
-        public decimal Payment { get; set; }
-        public decimal PayBack { get; set; }
-        public string BillNumber { get; set; }
+        public Nullable<int> Amount { get; set; }
+        public Nullable<int> Payment { get; set; }
+        public Nullable<int> PayBack { get; set; }
+        public Nullable<int> SuplierId { get; set; }
     }
 }

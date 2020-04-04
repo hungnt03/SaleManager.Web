@@ -21,7 +21,7 @@ namespace SaleManager.Web.Entities
         public string UpdatedBy { get; set; }
         public string Name { get; set; }
         public int Quantity { get; set; }
-        public decimal Price { get; set; }
+        public Nullable<int> Price { get; set; }
         public int CategoryId { get; set; }
         public int SupplierId { get; set; }
         public Nullable<bool> Pin { get; set; }

@@ -227,6 +227,8 @@
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\SellModel.cs" />
     <Compile Include="Models\SupplierModel.cs" />
+    <Compile Include="Models\TransactionDetailModel.cs" />
+    <Compile Include="Models\TransactionModel.cs" />
     <Compile Include="Models\UploadPartialModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
